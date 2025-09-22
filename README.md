@@ -22,6 +22,7 @@ Crea un archivo `.env.local` en la raíz del proyecto con el siguiente contenido
 PORT=3000
 DB_URL=postgresql://usuario:contraseña@switchback.proxy.rlwy.net:44082/nombreDB
 NODE_ENV=development
+```
 
 ---
 ## Ejemplo
