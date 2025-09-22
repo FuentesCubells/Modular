@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { routes } from '../../app.routes';
 import { RouterLink } from '@angular/router';
 
@@ -12,6 +12,7 @@ import { RouterLink } from '@angular/router';
 })
 export class MenuComponent {
   activeItem: string = '';
+  @Input() isAsideOpen: boolean | undefined;
   menuItems = routes.filter(r => r.data?.["showInMenu"]);
 
   constructor() {};

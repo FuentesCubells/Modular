@@ -1,4 +1,4 @@
-<aside class="h-screen p-5 flex flex-col items-start gap-5 bg-white">
+<article class="h-screen p-5 flex flex-col items-start gap-5 bg-white">
     <p class="p-1 w-full text-lg font-bold border-b border-gray-500">CRM</p>
     <nav class="w-full flex flex-col gap-2 overflow-y-auto flex-1">
         <a *ngFor="let item of menuItems" [routerLink]="item.path"
@@ -9,4 +9,4 @@
             </ng-container>
         </a>
     </nav>
-</aside>
+</article>
