@@ -13,7 +13,7 @@ import { HousingCardComponent } from "../../components/housing/housingCard.compo
   styleUrl: './main.component.css'
 })
 export class MainComponent implements OnInit, OnDestroy {
-  houses: any[] = [];
+  houses: Housing[] = [];
   error: string | null = null;
   private $destroy = new Subject<void>();
 

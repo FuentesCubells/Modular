@@ -10,6 +10,7 @@ class HousingRepo {
         const rows = await db.select().from(housingSchema);
         return rows.map(row => new HousingDomain(
             row.id.toString(),
+            row.title,
             row.description,
             row.rooms,
             row.bathrooms,
@@ -19,8 +20,9 @@ class HousingRepo {
             Number(row.price_per_night),
             row.type,
             row.location,
+            row.status,
             row.created_at ?? null,
-            row.updated_at
+            row.updated_at ?? null
         ));
     }
 }

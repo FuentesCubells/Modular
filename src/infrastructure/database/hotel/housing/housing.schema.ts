@@ -1,8 +1,8 @@
 import { integer, numeric, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
 
-
 const housingSchema = pgTable("housing", {
     id: serial("id").primaryKey(),
+    title: text("title").notNull(),
     description: text("description").notNull(),
     rooms: integer("rooms").notNull(),
     bathrooms: integer("bathrooms").notNull(),
@@ -12,8 +12,9 @@ const housingSchema = pgTable("housing", {
     price_per_night: numeric("price_per_night").notNull(),
     type: text("type").notNull(),
     location: text("location").notNull(),
+    status: text("status").notNull(),
     created_at: timestamp("created_at").defaultNow(),
     updated_at: timestamp("updated_at").defaultNow(),
-})
+});
 
-export  default housingSchema
+export default housingSchema;
