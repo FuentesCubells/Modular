@@ -25,5 +25,5 @@ NODE_ENV=development
 ```
 
 ---
-## Ejemplo
+## Ejemplo de como conectarse
 https://dev.to/ngoakor12/connect-a-railway-databasepostgresql-with-node-postgres-in-express-15lf
