@@ -1,0 +1,14 @@
+<section class="w-full flex flex-col items-center justify-center gap-10">
+  
+  <div class="w-full flex flex-col gap-3">
+    <h1 class="text-4xl font-bold">Housing</h1>
+    <p class="">Gestión completa del inventario de habitaciones y suites</p>
+  </div>
+
+  <ul *ngIf="houses.length > 0" class="w-full grid grid-cols-2 gap-4 auto-rows-auto">
+    <li *ngFor="let house of houses">
+      <crm-housing-card [house]="house"></crm-housing-card>
+    </li>
+  </ul>
+
+</section>

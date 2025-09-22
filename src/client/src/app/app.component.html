@@ -1,1 +1,15 @@
-<router-outlet></router-outlet>
+<main class="h-screen flex">
+
+  <div [ngClass]="isAsideOpen ? 'w-64' : 'w-0 overflow-hidden'" class="relative transition-all duration-300">
+    <crm-menu></crm-menu>
+  </div>
+
+  <main class="w-full flex flex-col overflow-auto">
+    <crm-header (openAside)="handleOpenAside($event)"></crm-header>
+    <section class="p-5 flex-1 flex flex-col gap-10">
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+
+
+</main>

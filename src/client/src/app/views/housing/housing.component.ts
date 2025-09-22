@@ -6,13 +6,13 @@ import { CommonModule } from '@angular/common';
 import { HousingCardComponent } from "../../components/housing/housingCard.component";
 
 @Component({
-  selector: 'app-main',
+  selector: 'crm-housing',
   standalone: true,
   imports: [CommonModule, HousingCardComponent],
-  templateUrl: './main.component.html',
-  styleUrl: './main.component.css'
+  templateUrl: './housing.component.html',
+  styleUrl: './housing.component.css'
 })
-export class MainComponent implements OnInit, OnDestroy {
+export class HousingComponent implements OnInit, OnDestroy {
   houses: Housing[] = [];
   error: string | null = null;
   private $destroy = new Subject<void>();

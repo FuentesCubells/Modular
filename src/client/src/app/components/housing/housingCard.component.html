@@ -1,5 +1,4 @@
-<article
-    class=" flex flex-col items-start bg-white cursor-pointer border border-gray-100 hover:border hover:border-gray-900 transition-all duration-300">
+<article class="flex flex-col items-start bg-white cursor-pointer border border-gray-100 hover:border hover:border-gray-900 transition-all duration-300">
     <figure class="p-3 w-full min-h-[250px] bg-gray-400">
         <span class="p-1" [ngClass]="{
                     'text-green-700 bg-green-200': house?.status === 'Disponible',
@@ -75,8 +74,8 @@
             </div>
         </article>
 
-        <article class="w-full pt-3 flex flex-row justify-between border-t">
-            <p class="text-xs text-gray-500 font-light text-transform:uppercase text-gray-500 uppercase">Precio por noche</p>
+        <article class="w-full pt-3 flex flex-row items-center justify-between border-t">
+            <p class="text-xs text-gray-500 font-light text-transform:uppercase uppercase">Precio por noche</p>
             <p class="text-xl">{{house?.price_per_night}} Eur</p>
         </article>
     </body>

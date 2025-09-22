@@ -1,6 +1,16 @@
 import { Routes } from '@angular/router';
-import { MainComponent } from './views/main/main.component';
+import { HousingComponent } from './views/housing/housing.component';
+
+
 
 export const routes: Routes = [
-    { path: '', component: MainComponent}
+    {
+        path: 'housing',
+        component: HousingComponent,
+        data: { 
+            title: 'Housing', 
+            icon: 'pi pi-building', 
+            showInMenu: true 
+        }
+    }
 ];
