@@ -15,7 +15,6 @@
         <h3 class="font-bold">{{house?.title}}</h3>
         <h3 class="font-light uppercase text-gray-500">{{house?.type}}</h3>
     </header>
-
     <body class="p-3 w-full flex flex-col gap-5">
         <article class="w-full flex flex-col justify-center gap-2">
             <p>{{house?.description}}</p>
@@ -75,7 +74,7 @@
         </article>
 
         <article class="w-full pt-3 flex flex-row items-center justify-between border-t">
-            <p class="text-xs text-gray-500 font-light text-transform:uppercase uppercase">Precio por noche</p>
+            <p class="text-xs text-gray-500 font-bold text-transform:uppercase uppercase">Precio por noche</p>
             <p class="text-xl">{{house?.price_per_night}} Eur</p>
         </article>
     </body>

@@ -1,14 +1,19 @@
 <section class="w-full flex flex-col items-center justify-center gap-10">
-  
-  <div class="w-full flex flex-col gap-3">
+
+  <header class="w-full flex flex-col gap-2">
     <h1 class="text-4xl font-bold">Housing</h1>
     <p class="">Gestión completa del inventario de habitaciones y suites</p>
-  </div>
+  </header>
 
-  <ul *ngIf="houses.length > 0" class="w-full grid grid-cols-2 gap-4 auto-rows-auto">
-    <li *ngFor="let house of houses">
-      <crm-housing-card [house]="house"></crm-housing-card>
-    </li>
-  </ul>
+  <body class="w-full">
+    <article class="w-full flex flex-col gap-3" *ngIf="houses.length > 0">
+      <p class="text-sm text-gray-500 uppercase">{{houses.length}} alojamientos encontrados</p>
+      <ul class="w-full grid grid-cols-2 gap-4 auto-rows-auto">
+        <li *ngFor="let house of houses">
+          <crm-housing-card [house]="house"></crm-housing-card>
+        </li>
+      </ul>
+    </article>
+  </body>
 
 </section>
