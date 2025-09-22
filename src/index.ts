@@ -5,7 +5,7 @@ import housingRoutes from './infrastructure/routes/hotel/hotel.routes';
 
 const app = express();
 app.use(express.json());
-app.use("/housing", housingRoutes);
+app.use("/api/v1/housing", housingRoutes);
 
 async function startServer() {
   try {

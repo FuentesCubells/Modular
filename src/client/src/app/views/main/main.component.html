@@ -1,0 +1,7 @@
+<section class="p-5">
+  <ul *ngIf="houses.length > 0" class="grid grid-cols-2 gap-4 auto-rows-auto">
+    <li *ngFor="let house of houses">
+      <crm-housing-card [house]="house"></crm-housing-card>
+    </li>
+  </ul>
+</section>

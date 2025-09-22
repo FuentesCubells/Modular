@@ -1,0 +1,83 @@
+<article
+    class=" flex flex-col items-start bg-white cursor-pointer border border-gray-100 hover:border hover:border-gray-900 transition-all duration-300">
+    <figure class="p-3 w-full min-h-[250px] bg-gray-400">
+        <span class="p-1" [ngClass]="{
+                    'text-green-700 bg-green-200': house?.status === 'Disponible',
+                    'text-red-700 bg-red-200': house?.status === 'Ocupado',
+                    'text-yellow-700 bg-yellow-200': house?.status === 'Mantenimiento',
+                    'text-blue-700 bg-blue-200': house?.status === 'Limpieza'
+                }">
+            {{ house?.status }}
+        </span>
+
+        <img />
+    </figure>
+    <header class="p-3 flex flex-col gap-0">
+        <h3 class="font-bold">{{house?.title}}</h3>
+        <h3 class="font-light uppercase text-gray-500">{{house?.type}}</h3>
+    </header>
+
+    <body class="p-3 w-full flex flex-col gap-5">
+        <article class="w-full flex flex-col justify-center gap-2">
+            <p>{{house?.description}}</p>
+            <div class="flex items-center space-x-1">
+                <i class="pi pi-map-marker text-grey-500"></i>
+                <p class="font-light text-gray-500">{{ house?.location }}</p>
+            </div>
+        </article>
+
+
+        <article class="w-full flex flex-row justify-center gap-2">
+
+            <div class="flex flex-1 flex-col items-center space-x-1">
+                <div class="flex flex-row items-center justify-center gap-1">
+                    <i class="pi pi-user text-grey-500"></i>
+                    <p>{{ house?.max_people }}</p>
+                </div>
+                <p class="text-xs text-gray-500 uppercase">Húespedes</p>
+            </div>
+
+            <div class="flex flex-1  flex-col items-center space-x-1">
+                <div class="flex flex-row items-center justify-center gap-1">
+                    <i class="pi pi-home text-grey-500"></i>
+                    <p>{{ house?.rooms }}</p>
+                </div>
+                <p class="text-xs text-gray-500 uppercase">Habitaciones</p>
+            </div>
+
+            <div class="flex  flex-1  flex-col items-center space-x-1">
+                <div class="flex flex-row items-center justify-center gap-1">
+                    <i class="pi pi-home text-grey-500"></i>
+                    <p>{{ house?.bathrooms }}</p>
+                </div>
+                <p class="text-xs text-gray-500 uppercase">Baños</p>
+            </div>
+        </article>
+
+        <article class="flex flex-col items-start gap-2">
+            <span class="font-semibold text-gray-500">Servicios:</span>
+
+            <div class="flex flex-row items-center">
+
+                <div class="flex items-center space-x-1">
+                    <i class="pi pi-wifi text-grey-500"></i>
+                </div>
+
+
+                <div class="flex items-center space-x-1">
+                    <i class="pi pi-utensils text-grey-500"></i>
+                </div>
+
+
+                <div class="flex items-center space-x-1">
+                    <i class="pi pi-water text-grey-500"></i>
+                </div>
+            </div>
+        </article>
+
+        <article class="w-full pt-3 flex flex-row justify-between border-t">
+            <p class="text-xs text-gray-500 font-light text-transform:uppercase text-gray-500 uppercase">Precio por noche</p>
+            <p class="text-xl">{{house?.price_per_night}} Eur</p>
+        </article>
+    </body>
+</article>
