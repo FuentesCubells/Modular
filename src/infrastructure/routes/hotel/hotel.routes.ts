@@ -7,5 +7,6 @@ const asyncHandler = (fn: Function) => (req: Express.Request, res: Express.Respo
 };
 
 housingRoutes.get("/", asyncHandler(HotelController.getHousesList));
+housingRoutes.get("/:id", asyncHandler(HotelController.getHouseById));
 
 export default housingRoutes
