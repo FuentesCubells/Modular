@@ -14,10 +14,9 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'client';
-  isAsideOpen: boolean = false;
+  isMenuOpen: boolean = false;
 
-  handleOpenAside( isAsideOpen: boolean ){
-    console.log(isAsideOpen);
-    this.isAsideOpen = isAsideOpen;
+  handleOpenAside( isMenuOpen: boolean ){
+    this.isMenuOpen = isMenuOpen;
   }
 }

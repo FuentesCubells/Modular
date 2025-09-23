@@ -14,4 +14,9 @@ export class HousingService {
   getHousingList(): Observable<Housing[]>{
       return this.http.get<Housing[]>(this.baseURL)
   }
+
+  getHousingById( id: string ):Observable<Housing>{
+      const url = this.baseURL + `/${parseInt(id)}`;
+      return this.http.get<Housing>(url)
+  }
 }

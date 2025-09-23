@@ -12,7 +12,7 @@ import { RouterLink } from '@angular/router';
 })
 export class MenuComponent {
   activeItem: string = '';
-  @Input() isAsideOpen: boolean | undefined;
+  @Input() isMenuOpen: boolean | undefined;
   menuItems = routes.filter(r => r.data?.["showInMenu"]);
 
   constructor() {};

@@ -1,7 +1,7 @@
 <main class="h-screen flex gap-5">
 
-  <aside [ngClass]="isAsideOpen ? 'w-64' : 'w-0 overflow-hidden'" class="relative transition-all duration-300">
-    <crm-menu [isAsideOpen]="isAsideOpen"></crm-menu>
+  <aside [ngClass]="isMenuOpen ? 'w-64' : 'w-0 overflow-hidden'" class="relative transition-all duration-300">
+    <crm-menu [isMenuOpen]="isMenuOpen"></crm-menu>
   </aside>
 
   <body class="p-5 w-full flex flex-col overflow-auto">

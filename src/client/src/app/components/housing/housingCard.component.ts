@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Housing } from '../../models/housing.model';
 
 @Component({
@@ -7,8 +7,13 @@ import { Housing } from '../../models/housing.model';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './housingCard.component.html',
-  styleUrl: './housing.component.css'
+  styleUrls: ['./housing.component.css']
 })
 export class HousingCardComponent {
   @Input() house: Housing | null = null;
+  @Output() houseSelected = new EventEmitter<string | undefined>();
+
+  handleClick(houseId?: string) {
+    this.houseSelected.emit(houseId);
+  }
 }

@@ -1,4 +1,6 @@
-<article class="flex flex-col items-start bg-white cursor-pointer border border-gray-100 hover:border hover:border-gray-900 transition-all duration-300">
+<article 
+    (click)="handleClick(house?.id ?? undefined)"
+    class="flex flex-col items-start bg-white cursor-pointer border border-gray-100 hover:border hover:border-gray-900 transition-all duration-300">
     <figure class="p-3 w-full min-h-[250px] bg-gray-400">
         <span class="p-1" [ngClass]="{
                     'text-green-700 bg-green-200': house?.status === 'Disponible',
