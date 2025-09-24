@@ -1,0 +1,128 @@
+<form #form="ngForm" (ngSubmit)="onSubmit()" class="w-full  h-screen flex flex-col border-l border-gray-300 bg-white">
+    <header class="p-4 flex flex-row items-center justify-between border-b border-gray-300">
+        <span class="font-bold text-lg capitalize">
+            {{editable ? 'Editar Alojamiento' : 'Detalles del alojamiento'}}
+        </span>
+        <button
+            (click)="onCloseAside()"
+            class="w-[48px] aspect-square cursor-pointer hover:bg-gray-900 hover:text-white transition-all ease-linear duration-200">
+            <i class="pi pi-times"></i>
+        </button>
+    </header>
+
+    <div class="flex-1 overflow-y-auto p-4 flex flex-col gap-4">
+            <!--Images-->
+        <fieldset class="p-4 w-full flex flex-col gap-4">
+            <figure class="w-full aspect-[16/9] bg-gray-500 cursor-pointer">
+                <img src="..." alt="" class="w-full h-full object-cover" />
+            </figure>
+
+            <div class="w-full flex flex-row gap-2" *ngIf="editable">
+                <figure class="w-full aspect-square bg-gray-500 overflow-hidden cursor-pointer">
+                    <img src="..." alt="" class="w-full h-full object-cover" />
+                </figure>
+                <figure class="w-full aspect-square bg-gray-500 overflow-hidden cursor-pointer">
+                    <img src="..." alt="" class="w-full h-full object-cover" />
+                </figure>
+                <figure class="w-full aspect-square bg-gray-500 overflow-hidden cursor-pointer">
+                    <img src="..." alt="" class="w-full h-full object-cover" />
+                </figure>
+            </div>
+        </fieldset>
+        <!--Housing description-->
+        <fieldset class="p-4 flex flex-col gap-4 border-b border-gray-300">
+            <div class="flex flex-col gap-1">
+                <crm-text-field label="Nombre del alojamiento" [class]="'font-bold text-xl'" [(value)]="formData.title"
+                    [editable]="editable"></crm-text-field>
+                <crm-text-field label="Tipo" [class]="'font-medium text-lg text-gray-500 tracking-wider'"
+                    [(value)]="formData.type" [editable]="editable"></crm-text-field>
+            </div>
+            <crm-location-field label="" [class]="'font-light text-lg text-gray-500'" [(value)]="formData.location"
+                [editable]="editable"></crm-location-field>
+            <div class="flex flex-col gap-1">
+                <p *ngIf="!editable" class="font-medium text-gray-500 tracking-wider">Descripción:</p>
+                <crm-text-field label="Descripción" [type]="'textarea'" [class]="'font-light text-lg text-gray-500'"
+                    [(value)]="formData.description" [editable]="editable"></crm-text-field>
+            </div>
+        </fieldset>
+        <!--State description-->
+        <fieldset class="p-4 flex flex-col gap-4 border-b border-gray-300">
+            <p *ngIf="!editable" class="font-medium text-gray-500 tracking-wider">Estado Actual:</p>
+            <crm-select-field label="Estado actual" [(value)]="formData.status" [editable]="editable"
+                [options]="statusOptions"></crm-select-field>
+        </fieldset>
+        <!--Specifications-->
+        <fieldset class="p-4 flex flex-col gap-4 border-b border-gray-300">
+            <p class="font-medium text-gray-500 tracking-wider">Especificaciones:</p>
+            <div class="flex flex-row gap-3">
+                <div class="p-2 flex flex-col items-center justify-center gap-1 flex-1 bg-gray-200">
+                    <div class="flex flex-row items-center justify-center gap-1">
+                        <i class="pi pi-user text-grey-500"></i>
+                        <crm-number-field label="" [(value)]="formData.max_people"
+                            [editable]="editable"></crm-number-field>
+                    </div>
+                    <p class="text-xs text-gray-500 uppercase">Húespedes</p>
+                </div>
+                <div class="p-2 flex flex-col items-center justify-center gap-1 flex-1 bg-gray-200">
+                    <div class="flex flex-row items-center justify-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="#1f1f1f">
+                            <path
+                                d="M80-200v-250q0-25.67 10.33-47.67 10.34-22 29.67-37v-114.66Q120-696 152-728t78.67-32H404q22.33 0 41.67 9.5Q465-741 480-724.67q15-16.33 34-25.83t41.33-9.5h173.34q46.66 0 79 32Q840-696 840-649.33v114.66q19.33 15 29.67 37Q880-475.67 880-450v250h-66.67v-80H146.67v80H80Zm433.33-356.67h260v-92.66q0-19-12.83-31.5t-31.83-12.5H553.33q-17 0-28.5 13.16-11.5 13.17-11.5 30.84v92.66Zm-326.66 0h260v-92.66q0-17.67-11.5-30.84-11.5-13.16-28.5-13.16h-176q-18.34 0-31.17 12.83-12.83 12.83-12.83 31.17v92.66Zm-40 210h666.66V-450q0-17-11.5-28.5t-28.5-11.5H186.67q-17 0-28.5 11.5t-11.5 28.5v103.33Zm666.66 0H146.67h666.66Z" />
+                        </svg>
+                        <crm-number-field label="" [(value)]="formData.rooms" [editable]="editable"></crm-number-field>
+                    </div>
+                    <p class="text-xs text-gray-500 uppercase">Habitaciones</p>
+                </div>
+                <div class="p-2 flex flex-col items-center justify-center gap-1 flex-1 bg-gray-200">
+                    <div class="flex flex-row items-center justify-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="#1f1f1f">
+                            <path
+                                d="M360-240q17 0 28.5-11.5T400-280q0-17-11.5-28.5T360-320q-17 0-28.5 11.5T320-280q0 17 11.5 28.5T360-240Zm120 0q17 0 28.5-11.5T520-280q0-17-11.5-28.5T480-320q-17 0-28.5 11.5T440-280q0 17 11.5 28.5T480-240Zm120 0q17 0 28.5-11.5T640-280q0-17-11.5-28.5T600-320q-17 0-28.5 11.5T560-280q0 17 11.5 28.5T600-240ZM360-360q17 0 28.5-11.5T400-400q0-17-11.5-28.5T360-440q-17 0-28.5 11.5T320-400q0 17 11.5 28.5T360-360Zm120 0q17 0 28.5-11.5T520-400q0-17-11.5-28.5T480-440q-17 0-28.5 11.5T440-400q0 17 11.5 28.5T480-360Zm120 0q17 0 28.5-11.5T640-400q0-17-11.5-28.5T600-440q-17 0-28.5 11.5T560-400q0 17 11.5 28.5T600-360ZM280-480h400v-40q0-83-58.5-141.5T480-720q-83 0-141.5 58.5T280-520v40Zm62-60q8-51 46.5-85.5T480-660q53 0 91.5 34.5T618-540H342ZM160-80q-33 0-56.5-23.5T80-160v-640q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v640q0 33-23.5 56.5T800-80H160Zm0-80h640v-640H160v640Zm0 0v-640 640Z" />
+                        </svg>
+                        <crm-number-field label="" [(value)]="formData.bathrooms"
+                            [editable]="editable"></crm-number-field>
+                    </div>
+                    <p class="text-xs text-gray-500 uppercase">Baños</p>
+                </div>
+            </div>
+        </fieldset>
+        <!--Main Characteristics-->
+        <fieldset class="p-4 flex flex-col gap-2 border-b ">
+            <p class="font-medium text-gray-500 tracking-wider">Características Principales:</p>
+            <crm-option-field *ngFor="let item of formData.main_equipment; let i = index" [label]="item.label"
+                [class]="'border-gray-300'" [(value)]="item.value" [editable]="editable"></crm-option-field>
+        </fieldset>
+        <!--Price Per Night-->
+        <fieldset class="p-4 flex flex-col gap-2">
+            <p class="font-medium text-gray-500 tracking-wider">Precio por noche</p>
+            <crm-text-field label="" symbol="Eur" class="text-xl font-medium" [(value)]="formData.price_per_night"
+                [editable]="editable"></crm-text-field>
+        </fieldset>
+    </div>
+
+    <!--Actions-->
+    <fieldset class="p-5 flex flex-row gap-8 items-center justify-around">
+
+        <ng-container *ngIf="editable">
+            <button type="submit"
+                class="px-4 py-2 flex flex-1 items-center justify-center gap-2 border border-gray-900 text-gray-800 hover:bg-gray-900 hover:text-white transition-all ease-linear duration-200">
+                <i class="pi pi-save"></i>
+                Guardar
+            </button>
+
+            <button type="button" (click)="onCancel()"
+                class="px-4 py-2 flex flex-1 items-center justify-center gap-2 border border-gray-900 text-gray-800 hover:bg-gray-900 hover:text-white transition-all ease-linear duration-200">
+                <i class="pi pi-times"></i>
+                Cancelar
+            </button>
+        </ng-container>
+
+        <button *ngIf="!editable" type="button" (click)="editable = true"
+            class="px-4 py-2 flex flex-1 items-center justify-center gap-2 border border-gray-900 text-gray-800 hover:bg-gray-900 hover:text-white transition-all ease-linear duration-200">
+            <i class="pi pi-pencil"></i>
+            Editar alojamiento
+        </button>
+    </fieldset>
+</form>

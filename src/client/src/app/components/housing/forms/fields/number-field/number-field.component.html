@@ -1,0 +1,15 @@
+<fieldset class="flex flex-col gap-2">
+  <!-- No editable: solo mostrar valor -->
+  <span *ngIf="!editable" [ngClass]="class">{{ value !== null ? value : '-' }}</span>
+
+  <!-- Editable -->
+  <ng-container *ngIf="editable">
+    <label class="font-semibold text-lg tracking-wider text-gray-500">{{ label }}</label>
+    <input
+      type="number"
+      [ngModel]="value"
+      (ngModelChange)="onInputChange($event)"
+      class="p-2 max-w-[4rem] border text-base text-gray-700 border-gray-500 rounded"
+    />
+  </ng-container>
+</fieldset>

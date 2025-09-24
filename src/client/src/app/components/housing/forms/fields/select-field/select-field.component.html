@@ -1,0 +1,24 @@
+<fieldset class="flex flex-col gap-2">
+
+    <span *ngIf="!editable" 
+        class="px-4 py-2 w-fit"
+        [ngClass]=" {
+                    'text-green-700 bg-green-200': value === 'Disponible',
+                    'text-red-700 bg-red-200': value === 'Ocupado',
+                    'text-yellow-700 bg-yellow-200': value === 'Mantenimiento',
+                    'text-blue-700 bg-blue-200': value === 'Limpieza'
+                }">
+                {{ value || '-' }}
+    </span>
+
+    <ng-container *ngIf=" editable">
+        <label class="font-semibold text-lg tracking-wider text-gray-500">{{ label }}</label>
+
+        <select [ngModel]="value" (ngModelChange)="onInputChange($event)"
+            class="p-2 w-full border text-base bg-white text-gray-700 border-gray-500">
+            <option *ngFor="let opt of options" [value]="opt.value">
+                {{ opt.label }}
+            </option>
+        </select>
+    </ng-container>
+</fieldset>

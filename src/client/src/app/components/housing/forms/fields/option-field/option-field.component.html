@@ -1,0 +1,12 @@
+<div class="flex items-center justify-between p-2 border w-full" [ngClass]="class">
+  <span class="text-gray-700 font-medium">{{ label }}</span>
+
+  <!-- Editable: checkbox -->
+  <input
+    type="checkbox"
+    [checked]="value"
+    (change)="toggle()"
+    [disabled]="!editable"
+    class="w-5 h-5 text-gray-600 border-gray-300 focus:ring-blue-500"
+  />
+</div>

@@ -1,0 +1,12 @@
+<fieldset class="flex flex-col gap-1 items-start">
+    <div class="flex flex-row gap-2 items-center" *ngIf="!editable">
+        <i class="pi pi-map-marker"></i>
+        <span *ngIf="!editable" [ngClass]="class">{{ value || '-' }}</span>
+    </div>
+
+    <ng-container *ngIf="editable">
+         <i class="pi pi-map-marker"></i>
+        <input type="text" [ngModel]="value" (ngModelChange)="onInputChange($event)"
+            class="p-2 w-full border text-base text-gray-700 border-gray-500" />
+    </ng-container>
+</fieldset>

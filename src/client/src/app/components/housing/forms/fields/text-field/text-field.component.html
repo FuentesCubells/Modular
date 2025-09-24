@@ -1,0 +1,16 @@
+<fieldset class="flex flex-col gap">
+    <span *ngIf="!editable" [ngClass]="class">{{ value || '-' }} {{symbol}}</span>
+
+    <ng-container *ngIf="editable">
+        <label class="font-semibold text-lg tracking-wider text-gray-500">{{ label }}</label>
+
+        <!-- Input tipo text -->
+        <input *ngIf="type === 'text'" [type]="type" [ngModel]="value" (ngModelChange)="onInputChange($event)"
+            class="p-2 w-full border text-base text-gray-700 border-gray-500 rounded" />
+
+        <!-- Textarea -->
+        <textarea *ngIf="type === 'textarea'" [ngModel]="value" (ngModelChange)="onInputChange($event)"
+            class="p-3 w-full min-h-[200px] text-base border text-gray-700 border-gray-500"></textarea>
+    </ng-container>
+
+</fieldset>
